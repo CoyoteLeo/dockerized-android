@@ -4,7 +4,7 @@ services:
         image: secsi/dockerized-android-core-real-device
         privileged: true
         networks:
-            dockerized-android-net:
+            dockerized-android-instance-manager-net:
                 ipv4_address: 193.21.1.2
         environment: 
             - TERMINAL=false
@@ -12,21 +12,21 @@ services:
         image: secsi/dockerized-android-core-emulator-5.0.1
         privileged: true
         networks:
-            dockerized-android-net:
+            dockerized-android-instance-manager-net:
                 ipv4_address: 193.21.1.3
     ui:
         image: secsi/dockerized-android-ui
         ports:
             - "8080:80"
         networks:
-            dockerized-android-net:
+            dockerized-android-instance-manager-net:
                 ipv4_address: 193.21.1.42
     instance-manager:
         image: secsi/dockerized-android-instance-manager
         ports:
             - "7373:7373"
         networks:
-            dockerized-android-net:
+            dockerized-android-instance-manager-net:
                 ipv4_address: 193.21.1.100
         volumes:
             - ./instances.json:/usr/src/instance-manager/instances.json
