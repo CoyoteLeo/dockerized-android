@@ -9,7 +9,7 @@ services:
         environment: 
             - TERMINAL=false
     core-emulator:
-        image: secsi/dockerized-android-core-emulator-5.0.1
+        image: secsi/dockerized-android-core-emulator-11.0
         privileged: true
         networks:
             dockerized-android-instance-manager-net:
